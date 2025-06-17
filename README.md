@@ -69,9 +69,9 @@ Este projeto foi construído utilizando tecnologias modernas do ecossistema Andr
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 
-**Anthony Passos**
-**Guilherme Magarao**
-**Ígor Rocha**
-**Luis Henrique**
+- **Anthony Passos**
+- **Guilherme Magarao**
+- **Ígor Rocha**
+- **Luis Henrique**
