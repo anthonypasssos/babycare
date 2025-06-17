@@ -76,7 +76,7 @@ Este projeto foi construído utilizando tecnologias modernas do ecossistema Andr
 
 ## 👨‍💻 Autores
 
-- **Anthony Passos**
-- **Guilherme Magarao**
-- **Ígor Rocha**
+- **[Anthony Passos](https://github.com/anthonypasssos)**
+- **[Guilherme Magarao](https://github.com/guilhermemagarao)**
+- **[Ígor Rocha](https://github.com/igorr0cha)**
 - **Luis Henrique**
