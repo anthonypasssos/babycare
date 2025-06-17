@@ -11,6 +11,7 @@ Seu objetivo principal é oferecer uma ferramenta simples e intuitiva para que p
 
 Toda a identidade visual e o fluxo de telas do aplicativo foram cuidadosamente planejados e prototipados no **Figma**.  
 O design busca ser **amigável, acolhedor e funcional**, facilitando o uso mesmo em momentos de cansaço.
+Link: _https://www.figma.com/design/wpwAl1b2khp4N8tdasmu6U/BabyCare_
 
 ---
 
