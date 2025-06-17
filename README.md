@@ -65,6 +65,10 @@ Este projeto foi construído utilizando tecnologias modernas do ecossistema Andr
   A interface para registrar o início e o fim do sono (`activity_sleep_register.xml`) está implementada.  
   A lógica para salvar os dados no banco ainda precisa ser conectada.
 
+  - **Registro de Alimentação:**  
+  A interface para registrar o início e o fim do sono (`activity_food_register.xml`) está implementada.  
+  A lógica para salvar os dados no banco ainda precisa ser conectada.
+
 - **Temas (Modo Noturno):**  
   A configuração de temas para **modo claro e escuro** (`themes.xml`) já está presente, cumprindo o requisito.
 
