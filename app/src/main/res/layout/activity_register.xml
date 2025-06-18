@@ -65,7 +65,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/subtittle"
-        app:startIconDrawable="@drawable/password_draw">
+        app:startIconDrawable="@drawable/user_draw">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
