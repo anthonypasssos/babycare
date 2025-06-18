@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-22dp"
+        android:src="@drawable/bush"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/green_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/green_logo"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/leaguespartan_bold"
+        android:text="Cadastrar Sono"
+        android:textSize="24sp"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/green_logo" />
+
+    <TextView
+        android:id="@+id/text_inicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/leaguespartan_regular"
+        android:text="Início"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_fim"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/text_fim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="120dp"
+        android:fontFamily="@font/leaguespartan_regular"
+        android:text="Fim"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/time_input_inicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button"
+        android:clickable="true"
+        android:drawablePadding="8dp"
+        android:focusable="true"
+        android:fontFamily="@font/leaguespartan_semibold"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="00:00"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:backgroundTint="#F0F0F0"
+        app:drawableStartCompat="@drawable/ic_time"
+        app:layout_constraintEnd_toEndOf="@+id/text_inicio"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="@+id/text_inicio"
+        app:layout_constraintTop_toBottomOf="@+id/text_inicio" />
+
+    <TextView
+        android:id="@+id/time_input_fim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button"
+        android:clickable="true"
+        android:drawablePadding="8dp"
+        android:focusable="true"
+        android:fontFamily="@font/leaguespartan_semibold"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="00:00"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:backgroundTint="#F0F0F0"
+        app:drawableStartCompat="@drawable/ic_time"
+        app:layout_constraintEnd_toEndOf="@+id/text_fim"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/text_fim"
+        app:layout_constraintTop_toBottomOf="@+id/text_fim" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sleep_register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/leaguespartan_semibold"
+        android:paddingHorizontal="60dp"
+        android:text="Cadastrar"
+        android:textSize="22sp"
+        app:backgroundTint="@color/strong_pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.743" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-22dp"
+        android:rotation="180"
+        android:src="@drawable/bush"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

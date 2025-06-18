@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_alimentacao"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".Login">
+
+    <!-- Imagem de fundo no topo -->
+    <ImageView
+        android:id="@+id/imageview_top_bush"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-22dp"
+        android:src="@drawable/bush"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Logo principal -->
+    <ImageView
+        android:id="@+id/green_logo_alimentacao"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/green_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Título da página -->
+
+    <!-- Grupo de seleção para o tipo de leite -->
+    <TextView
+        android:id="@+id/title_alimentacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/leaguespartan_bold"
+        android:text="Cadastrar Alimentação"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/green_logo_alimentacao" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup_tipo_leite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_alimentacao">
+
+        <RadioButton
+            android:id="@+id/radio_leite_materno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="Leite Materno"
+            android:checked="true"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radio_leite_formula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="Leite (Fórmula)"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <!-- Label "Início" -->
+    <TextView
+        android:id="@+id/text_inicio_alimentacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/leaguespartan_regular"
+        android:text="Início"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_fim_alimentacao"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroup_tipo_leite" />
+
+    <!-- Label "Fim" -->
+    <TextView
+        android:id="@+id/text_fim_alimentacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="110dp"
+        android:fontFamily="@font/leaguespartan_regular"
+        android:text="Fim"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroup_tipo_leite" />
+
+    <!-- Input para hora de Início -->
+    <TextView
+        android:id="@+id/time_input_inicio_alimentacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background=""
+        android:clickable="true"
+        android:drawablePadding="8dp"
+        android:focusable="true"
+        android:fontFamily="@font/leaguespartan_semibold"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="00:00"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:drawableStartCompat="@drawable/ic_time"
+        app:drawableTint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="@+id/text_inicio_alimentacao"
+        app:layout_constraintStart_toStartOf="@+id/text_inicio_alimentacao"
+        app:layout_constraintTop_toBottomOf="@+id/text_inicio_alimentacao" />
+
+    <!-- Input para hora de Fim -->
+    <TextView
+        android:id="@+id/time_input_fim_alimentacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background=""
+        android:clickable="true"
+        android:drawablePadding="8dp"
+        android:focusable="true"
+        android:fontFamily="@font/leaguespartan_semibold"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="00:00"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:drawableStartCompat="@drawable/ic_time"
+        app:drawableTint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="@+id/text_fim_alimentacao"
+        app:layout_constraintStart_toStartOf="@+id/text_fim_alimentacao"
+        app:layout_constraintTop_toBottomOf="@+id/text_fim_alimentacao" />
+
+    <!-- Botão de Cadastro -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/food_register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/leaguespartan_semibold"
+        android:paddingHorizontal="60dp"
+        android:text="Cadastrar"
+        android:textSize="22sp"
+        app:backgroundTint="@color/strong_pink"
+        app:layout_constraintBottom_toTopOf="@+id/imageview_bottom_bush"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_input_inicio_alimentacao"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <!-- Imagem de fundo na base -->
+    <ImageView
+        android:id="@+id/imageview_bottom_bush"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-22dp"
+        android:rotation="180"
+        android:src="@drawable/bush"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
