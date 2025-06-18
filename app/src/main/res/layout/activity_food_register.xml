@@ -6,9 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context=".Login">
+    tools:context=".FoodRegisterActivity">
 
-    <!-- Imagem de fundo no topo -->
+    <ImageButton
+        android:id="@+id/back_button_food"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Voltar"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black" />
+
     <ImageView
         android:id="@+id/imageview_top_bush"
         android:layout_width="0dp"
@@ -19,7 +31,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Logo principal -->
     <ImageView
         android:id="@+id/green_logo_alimentacao"
         android:layout_width="100dp"
@@ -30,9 +41,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Título da página -->
-
-    <!-- Grupo de seleção para o tipo de leite -->
     <TextView
         android:id="@+id/title_alimentacao"
         android:layout_width="wrap_content"
@@ -45,8 +53,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/green_logo_alimentacao" />
 
-    <RadioGroup
-        android:id="@+id/radiogroup_tipo_leite"
+    <LinearLayout
+        android:id="@+id/toggle_group_food_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -55,114 +63,166 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_alimentacao">
 
-        <RadioButton
-            android:id="@+id/radio_leite_materno"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggle_breast_milk"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/leaguespartan_regular"
             android:text="Leite Materno"
-            android:checked="true"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            app:strokeColor="@color/strong_green"
+            android:textSize="14sp" />
 
-        <RadioButton
-            android:id="@+id/radio_leite_formula"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggle_formula_milk"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/leaguespartan_regular"
             android:text="Leite (Fórmula)"
-            android:textSize="16sp" />
-    </RadioGroup>
+            android:textColor="@color/black"
+            app:strokeColor="@color/strong_green"
+            android:textSize="14sp" />
+    </LinearLayout>
 
-    <!-- Label "Início" -->
-    <TextView
-        android:id="@+id/text_inicio_alimentacao"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/quantity_section"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/leaguespartan_regular"
-        android:text="Início"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/text_fim_alimentacao"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radiogroup_tipo_leite" />
-
-    <!-- Label "Fim" -->
-    <TextView
-        android:id="@+id/text_fim_alimentacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="110dp"
-        android:fontFamily="@font/leaguespartan_regular"
-        android:text="Fim"
-        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radiogroup_tipo_leite" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggle_group_food_type"
+        tools:visibility="visible">
 
-    <!-- Input para hora de Início -->
-    <TextView
-        android:id="@+id/time_input_inicio_alimentacao"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/text_quantity_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="Quantidade"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/input_quantity_ml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:fontFamily="@font/leaguespartan_semibold"
+            android:gravity="center"
+            android:hint="ml"
+            android:inputType="number"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_quantity_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/time_section"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:drawablePadding="8dp"
-        android:focusable="true"
-        android:fontFamily="@font/leaguespartan_semibold"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:text="00:00"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:drawableStartCompat="@drawable/ic_time"
-        app:drawableTint="@android:color/black"
-        app:layout_constraintEnd_toEndOf="@+id/text_inicio_alimentacao"
-        app:layout_constraintStart_toStartOf="@+id/text_inicio_alimentacao"
-        app:layout_constraintTop_toBottomOf="@+id/text_inicio_alimentacao" />
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quantity_section">
 
-    <!-- Input para hora de Fim -->
-    <TextView
-        android:id="@+id/time_input_fim_alimentacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:drawablePadding="8dp"
-        android:focusable="true"
-        android:fontFamily="@font/leaguespartan_semibold"
-        android:gravity="center"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:text="00:00"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:drawableStartCompat="@drawable/ic_time"
-        app:drawableTint="@android:color/black"
-        app:layout_constraintEnd_toEndOf="@+id/text_fim_alimentacao"
-        app:layout_constraintStart_toStartOf="@+id/text_fim_alimentacao"
-        app:layout_constraintTop_toBottomOf="@+id/text_fim_alimentacao" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <!-- Botão de Cadastro -->
+            <TextView
+                android:id="@+id/text_inicio_alimentacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/leaguespartan_regular"
+                android:text="Início"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/time_input_start_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:drawablePadding="8dp"
+                android:focusable="true"
+                android:fontFamily="@font/leaguespartan_semibold"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:text="00:00"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                app:drawableStartCompat="@drawable/ic_time"
+                app:drawableTint="@android:color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_fim_alimentacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/leaguespartan_regular"
+                android:text="Fim"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/time_input_end_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:drawablePadding="8dp"
+                android:focusable="true"
+                android:fontFamily="@font/leaguespartan_semibold"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:text="00:00"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                app:drawableStartCompat="@drawable/ic_time"
+                app:drawableTint="@android:color/black" />
+        </LinearLayout>
+    </LinearLayout>
+
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/food_register_btn"
+        android:id="@+id/register_food_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button"
         android:fontFamily="@font/leaguespartan_semibold"
         android:paddingHorizontal="60dp"
         android:text="Cadastrar"
         android:textSize="22sp"
         app:backgroundTint="@color/strong_pink"
+        app:cornerRadius="50dp"
         app:layout_constraintBottom_toTopOf="@+id/imageview_bottom_bush"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time_input_inicio_alimentacao"
+        app:layout_constraintTop_toBottomOf="@+id/time_section"
         app:layout_constraintVertical_bias="0.45" />
 
-    <!-- Imagem de fundo na base -->
     <ImageView
         android:id="@+id/imageview_bottom_bush"
         android:layout_width="0dp"
