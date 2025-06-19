@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(
             this@MainActivity,
-            BabyRegister2::class.java
+            ItemFoodReport::class.java
         )
         startActivity(intent) // Inicia a nova Activity
 
