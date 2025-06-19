@@ -3,7 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_color">#FFFEE9</color>
+    <color name="bg_border_color">#EFEED1</color>
     <color name="strong_pink">#FFAFBA</color>
+    <color name="pink">#FFCBC5</color>
     <color name="strong_green">#9EB19D</color>
     <color name="green">#CADABD</color>
 </resources>

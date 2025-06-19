@@ -92,7 +92,7 @@
         android:text="Garoto"
         android:textSize="23sp"
         android:fontFamily="@font/leaguespartan_medium"
-        android:drawableTop="@drawable/boy_draw"
+        android:drawableTop="@drawable/ic_boy_draw"
         android:drawablePadding="8dp"
         android:background="@drawable/button_pressed"
         app:backgroundTint="@android:color/transparent"

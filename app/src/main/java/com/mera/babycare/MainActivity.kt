@@ -2,19 +2,28 @@ package com.mera.babycare
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential.Companion.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
+import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.CoroutineScope
@@ -23,84 +32,44 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.navigationBarColor = getColor(android.R.color.transparent)
+        window.isNavigationBarContrastEnforced = false
+
+        val controller = WindowInsetsControllerCompat(window, window.decorView)
+        controller.isAppearanceLightNavigationBars = false // Para ícones brancos, se for uma nav bar escura
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+
+        val navbar = findViewById<MaterialCardView>(R.id.navbar)
+
+        ViewCompat.setOnApplyWindowInsetsListener(navbar) { view, insets ->
+            val systemBarsInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            val params = view.layoutParams as ViewGroup.MarginLayoutParams
+            params.bottomMargin = systemBarsInsets.bottom
+            view.layoutParams = params
+
             insets
         }
 
-        val intent = Intent(
-            this@MainActivity,
-            ItemFoodReport::class.java
-        )
-        startActivity(intent) // Inicia a nova Activity
+        val babyCard = findViewById<LinearLayout>(R.id.baby_card)
 
-        val googleSignInButton = findViewById<Button>(R.id.googleSignInButton)
-        googleSignInButton.setOnClickListener {
-            signInWithGoogle()
+        ViewCompat.setOnApplyWindowInsetsListener(babyCard) { view, insets ->
+            val systemBarsInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            val params = view.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = systemBarsInsets.top
+            view.layoutParams = params
+
+            insets
         }
     }
-
-    private fun signInWithGoogle() {
-        CoroutineScope(Dispatchers.Main).launch {
-            val signInWithGoogleOption = GetSignInWithGoogleOption
-                .Builder(serverClientId = getString(R.string.default_web_client_id))
-                .build()
-
-            val request = GetCredentialRequest.Builder()
-                .addCredentialOption(signInWithGoogleOption)
-                .build()
-
-            val credentialManager = CredentialManager.create(this@MainActivity)
-
-            try {
-                val result = credentialManager.getCredential(
-                    request = request,
-                    context = this@MainActivity
-                )
-
-                // **** AQUI ESTÁ A MUDANÇA CRUCIAL ****
-                val credential = result.credential
-                if (credential is CustomCredential && credential.type == TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
-                    // Tente criar o GoogleIdTokenCredential a partir dos dados do CustomCredential
-                    val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
-                    val idToken = googleIdTokenCredential.idToken
-                    if (idToken != null) {
-                        firebaseAuthWithGoogle(idToken)
-                    } else {
-                        Log.e("GoogleSignIn", "ID Token é nulo, mesmo após criar GoogleIdTokenCredential do CustomCredential.")
-                    }
-                } else {
-                    Log.e("GoogleSignIn", "Credencial não é do tipo Google ID Token. Tipo: ${credential.javaClass.simpleName}, Sub-tipo: ${if (credential is CustomCredential) credential.type else "N/A"}")
-                }
-
-            } catch (e: Exception) {
-                Log.e("GoogleSignIn", "Erro ao fazer login com Google: ${e.message}", e)
-                e.printStackTrace() // Adicione isso para depuração completa
-            }
-        }
-    }
-
-    private val auth = FirebaseAuth.getInstance()
-
-    private fun firebaseAuthWithGoogle(idToken: String) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                } else {
-                    // If sign in fails, display a message to the user
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                }
-            }
-    }
-
 }

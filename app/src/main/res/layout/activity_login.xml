@@ -167,15 +167,16 @@
         android:paddingHorizontal="10dp"
         android:fontFamily="@font/leaguespartan_regular"/>
 
-    <ImageView
+    <ImageButton
         android:id="@+id/google_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="80dp"
-        android:src="@drawable/google"/>
+        android:src="@drawable/google_draw"
+        android:backgroundTint="@android:color/transparent"/>
 
     <ImageView
         android:layout_width="0dp"
