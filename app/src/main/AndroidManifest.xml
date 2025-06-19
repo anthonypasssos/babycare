@@ -28,6 +28,12 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemFoodReport"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

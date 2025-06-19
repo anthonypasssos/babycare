@@ -68,6 +68,7 @@
         app:startIconDrawable="@drawable/ic_user_draw">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -94,6 +95,7 @@
         app:startIconDrawable="@drawable/mail_draw">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -121,6 +123,7 @@
         app:flow_verticalBias="0.8">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -143,7 +146,7 @@
         app:layout_constraintTop_toBottomOf="@id/layout_password" />
 
     <TextView
-        android:id="@+id/register"
+        android:id="@+id/login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/leaguespartan_regular"

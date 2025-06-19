@@ -3,6 +3,7 @@ package com.mera.babycare
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import java.security.MessageDigest
 
 class DataBaseManager(context: Context) {
     fun addUser(
@@ -25,6 +26,21 @@ class DataBaseManager(context: Context) {
             put("created_at", createdAt)
         }
         db.insert("users", null, values)
+    }
+
+    fun hashPassword(password: String): String {
+        val bytes = MessageDigest.getInstance("SHA-256").digest(password.toByteArray())
+        return bytes.joinToString("") { "%02x".format(it) }
+    }
+
+    fun isEmailRegistered(db: SQLiteDatabase, email: String): Boolean {
+        val cursor = db.rawQuery("SELECT COUNT(*) FROM users WHERE email = ?", arrayOf(email))
+        var exists = false
+        if (cursor.moveToFirst()) {
+            exists = cursor.getInt(0) > 0
+        }
+        cursor.close()
+        return exists
     }
 
     fun addBaby(

@@ -89,7 +89,7 @@
         app:layout_constraintTop_toTopOf="@id/girl_btn"
         app:layout_constraintStart_toEndOf="@id/girl_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Garoto"
+        android:text="Menino"
         android:textSize="23sp"
         android:fontFamily="@font/leaguespartan_medium"
         android:drawableTop="@drawable/ic_boy_draw"
@@ -110,6 +110,7 @@
         android:layout_marginBottom="-22dp" />
 
     <ImageButton
+        android:id="@+id/next_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/arrow_draw"
@@ -120,4 +121,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.95"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow_draw"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:rotation="180"
+        app:layout_constraintHorizontal_bias="0.05"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,6 +69,7 @@
         app:startIconDrawable="@drawable/ic_user_draw">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -89,10 +90,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_date"
-        android:layout_width="0dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="114dp"
-        android:hint="00/00/0000"
+        android:hint="Selecionar Data"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="25dp"
         app:boxCornerRadiusBottomStart="25dp"
@@ -107,7 +107,7 @@
         app:startIconDrawable="@drawable/calendar_draw">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_name"
+            android:id="@+id/input_date"
             android:focusable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,6 +126,7 @@
         android:layout_marginBottom="-22dp" />
 
     <ImageButton
+        android:id="@+id/next_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/arrow_draw"

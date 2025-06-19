@@ -30,21 +30,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        window.navigationBarColor = getColor(android.R.color.transparent)
-        window.isNavigationBarContrastEnforced = false
-
-        val controller = WindowInsetsControllerCompat(window, window.decorView)
-        controller.isAppearanceLightNavigationBars = false // Para ícones brancos, se for uma nav bar escura
-
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        val intent = Intent(this, Register::class.java)
+        startActivity(intent)
 
         setContentView(R.layout.activity_main)
 
