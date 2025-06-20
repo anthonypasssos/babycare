@@ -63,6 +63,39 @@ class DataBaseManager(context: Context) {
         db.insert("babies", null, values)
     }
 
+    data class Baby(
+        val id: String,
+        val userId: String,
+        val name: String,
+        val birthDate: Long,
+        val sex: String,
+        val createdAt: Long
+    )
+
+    fun getBabyById(db: SQLiteDatabase, babyId: String): Baby? {
+        val cursor = db.rawQuery(
+            "SELECT id, user_id, name, birth_date, sex, created_at FROM babies WHERE id = ?",
+            arrayOf(babyId)
+        )
+
+        var baby: Baby? = null
+
+        if (cursor.moveToFirst()) {
+            baby = Baby(
+                id = cursor.getString(cursor.getColumnIndexOrThrow("id")),
+                userId = cursor.getString(cursor.getColumnIndexOrThrow("user_id")),
+                name = cursor.getString(cursor.getColumnIndexOrThrow("name")),
+                birthDate = cursor.getLong(cursor.getColumnIndexOrThrow("birth_date")),
+                sex = cursor.getString(cursor.getColumnIndexOrThrow("sex")),
+                createdAt = cursor.getLong(cursor.getColumnIndexOrThrow("created_at"))
+            )
+        }
+
+        cursor.close()
+        return baby
+    }
+
+
     fun addFeeding(
         db: SQLiteDatabase,
         id: String, //Use UUID.randomUUID().toString() para gerar o id

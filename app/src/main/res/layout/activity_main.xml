@@ -41,16 +41,18 @@
             android:orientation="vertical"
             android:layout_marginHorizontal="20dp">
             <TextView
+                android:id="@+id/baby_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enzo"
+                android:text=""
                 android:fontFamily="@font/leaguespartan_semibold"
                 android:textSize="22sp"/>
 
             <TextView
+                android:id="@+id/life_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1 mes e 4 dias"
+                android:text=""
                 android:textSize="16sp"
                 android:fontFamily="@font/leaguespartan_semibold"/>
         </LinearLayout>
@@ -99,11 +101,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/title_sleep"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@color/pink"
-                android:text="Diário de sono de Enzo"
+                android:text=""
                 android:gravity="center_vertical"
                 android:fontFamily="@font/leaguespartan_medium"
                 android:textSize="22sp"
@@ -245,11 +248,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/title_fedding"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@color/pink"
-                android:text="Como o Enzo se alimentou"
+                android:text=""
                 android:gravity="center_vertical"
                 android:fontFamily="@font/leaguespartan_medium"
                 android:textSize="22sp"

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -32,10 +33,14 @@ import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.Calendar
+import java.util.concurrent.TimeUnit
 
 class MainActivity : BaseActivity() {
     private lateinit var addSleep: ImageButton
     private lateinit var addFedding: ImageButton
+
+    private lateinit var baby: DataBaseManager.Baby
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +57,7 @@ class MainActivity : BaseActivity() {
 
         setContentView(R.layout.activity_main)
 
+        getData()
         setupViews()
         setupListeners()
     }
@@ -95,6 +101,59 @@ class MainActivity : BaseActivity() {
         addFedding.setOnClickListener {
             val intent = Intent(this, FoodRegisterActivity::class.java)
             startActivity(intent)
+        }
+
+        findViewById<TextView>(R.id.baby_name).text = baby.name
+        findViewById<TextView>(R.id.title_sleep).text = "Diário de sono de ${baby.name}"
+        findViewById<TextView>(R.id.title_fedding).text = "Como ${baby.name} se alimentou"
+        findViewById<TextView>(R.id.life_time).text = getMonthsAndDaysSince(baby.birthDate)
+    }
+
+    private fun getData() {
+        val dbHelper = Database(this)
+        val db = dbHelper.writableDatabase
+        val dbManager = DataBaseManager(this)
+
+        val prefs = this.getSharedPreferences("user_session", Context.MODE_PRIVATE)
+        val babyId = prefs.getString("baby_id", null)
+
+        baby = dbManager.getBabyById(db, babyId!!)!!
+    }
+
+    private fun getMonthsAndDaysSince(timestamp: Long): String {
+        val startCalendar = Calendar.getInstance().apply {
+            timeInMillis = timestamp
+        }
+
+        val endCalendar = Calendar.getInstance() // Hoje
+
+        var months = 0
+        var days = 0
+
+        // Calcular meses
+        while (startCalendar.before(endCalendar)) {
+            startCalendar.add(Calendar.MONTH, 1)
+            if (startCalendar.after(endCalendar)) {
+                startCalendar.add(Calendar.MONTH, -1) // volta 1 mês
+                break
+            }
+            months++
+        }
+
+        // Calcular dias restantes
+        val diffInMillis = endCalendar.timeInMillis - startCalendar.timeInMillis
+        days = TimeUnit.MILLISECONDS.toDays(diffInMillis).toInt()
+
+        // Montar o texto
+        val mesesTexto = if (months == 1) "1 mês" else "$months meses"
+        val diasTexto = if (days == 1) "1 dia" else "$days dias"
+
+        return if (months > 0 && days > 0) {
+            "$mesesTexto e $diasTexto"
+        } else if (months > 0) {
+            mesesTexto
+        } else {
+            diasTexto
         }
     }
 }
