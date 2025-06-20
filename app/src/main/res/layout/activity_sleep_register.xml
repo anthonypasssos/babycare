@@ -47,72 +47,108 @@
         android:id="@+id/text_inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
         android:fontFamily="@font/leaguespartan_regular"
         android:text="Início"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/text_fim"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintStart_toStartOf="@id/time_input_inicio"
+        app:layout_constraintBottom_toTopOf="@id/time_input_inicio"
+        app:layout_constraintEnd_toEndOf="@id/time_input_inicio"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/text_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/leaguespartan_regular"
+        android:text="Hoje"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/time_input_inicio"
+        app:layout_constraintEnd_toEndOf="@id/time_input_inicio"
+        app:layout_constraintTop_toBottomOf="@id/time_input_inicio"
+        android:layout_marginTop="10dp"/>
+
 
     <TextView
         android:id="@+id/text_fim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="120dp"
         android:fontFamily="@font/leaguespartan_regular"
         android:text="Fim"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintStart_toStartOf="@id/time_input_fim"
+        app:layout_constraintEnd_toEndOf="@id/time_input_fim"
+        app:layout_constraintBottom_toTopOf="@id/time_input_fim"
+        android:layout_marginBottom="10dp"/>
 
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/time_input_inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_button"
-        android:clickable="true"
-        android:drawablePadding="8dp"
-        android:focusable="true"
-        android:fontFamily="@font/leaguespartan_semibold"
-        android:gravity="center"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:text="00:00"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        app:backgroundTint="#F0F0F0"
-        app:drawableStartCompat="@drawable/ic_time"
-        app:layout_constraintEnd_toEndOf="@+id/text_inicio"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="@+id/text_inicio"
-        app:layout_constraintTop_toBottomOf="@+id/text_inicio" />
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxBackgroundColor="@color/bg_color"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_time"
+        app:layout_constraintEnd_toStartOf="@id/time_input_fim"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintBottom_toTopOf="@id/sleep_register_btn">
 
-    <TextView
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/time_text_inicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:text="00:00"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/leaguespartan_semibold"
+            android:gravity="center"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/time_input_fim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_button"
-        android:clickable="true"
-        android:drawablePadding="8dp"
-        android:focusable="true"
-        android:fontFamily="@font/leaguespartan_semibold"
-        android:gravity="center"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:text="00:00"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        app:backgroundTint="#F0F0F0"
-        app:drawableStartCompat="@drawable/ic_time"
-        app:layout_constraintEnd_toEndOf="@+id/text_fim"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="@+id/text_fim"
-        app:layout_constraintTop_toBottomOf="@+id/text_fim" />
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxBackgroundColor="@color/bg_color"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/time_input_inicio"
+        app:layout_constraintTop_toTopOf="@id/time_input_inicio">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/time_text_fim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:text="00:00"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/leaguespartan_semibold"
+            android:gravity="center"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sleep_register_btn"
