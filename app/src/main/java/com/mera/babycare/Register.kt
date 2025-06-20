@@ -47,7 +47,7 @@ class Register : BaseActivity() {
         btnLogin.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
-            finishAffinity()
+            finish()
         }
     }
 

@@ -1,6 +1,7 @@
 package com.mera.babycare
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -26,16 +28,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class Login : AppCompatActivity() {
+class Login : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
         setContentView(R.layout.activity_login)
 
         val googleSignInButton = findViewById<ImageButton>(R.id.google_btn)
         googleSignInButton.setOnClickListener {
             signInWithGoogle()
+        }
+
+        findViewById<TextView>(R.id.register).setOnClickListener {
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

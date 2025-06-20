@@ -404,6 +404,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp">
             <ImageButton
+                android:id="@+id/report_btn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_report"

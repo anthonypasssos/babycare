@@ -86,6 +86,11 @@ class MainActivity : BaseActivity() {
 
             insets
         }
+
+        findViewById<TextView>(R.id.baby_name).text = baby.name
+        findViewById<TextView>(R.id.title_sleep).text = "Diário de sono de ${baby.name}"
+        findViewById<TextView>(R.id.title_fedding).text = "Como ${baby.name} se alimentou"
+        findViewById<TextView>(R.id.life_time).text = getMonthsAndDaysSince(baby.birthDate)
     }
 
     private fun setupListeners() {
@@ -103,10 +108,10 @@ class MainActivity : BaseActivity() {
             startActivity(intent)
         }
 
-        findViewById<TextView>(R.id.baby_name).text = baby.name
-        findViewById<TextView>(R.id.title_sleep).text = "Diário de sono de ${baby.name}"
-        findViewById<TextView>(R.id.title_fedding).text = "Como ${baby.name} se alimentou"
-        findViewById<TextView>(R.id.life_time).text = getMonthsAndDaysSince(baby.birthDate)
+        findViewById<ImageButton>(R.id.report_btn).setOnClickListener {
+            val intent = Intent(this, ReportActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getData() {
