@@ -50,7 +50,7 @@ class MainActivity : BaseActivity() {
         val temUserId = prefs.contains("user_id")
 
         if (!temUserId) {
-            val intent = Intent(this, HistoryActivity::class.java)
+            val intent = Intent(this, Register::class.java)
             startActivity(intent)
             finish()
         }
