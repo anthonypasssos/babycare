@@ -25,7 +25,7 @@ import java.util.Date
 import java.util.Locale
 
 
-class ReportActivity : AppCompatActivity() {
+class ReportActivity : BaseActivity() {
     private lateinit var foodButton: ImageButton
     private lateinit var sleepButton: ImageButton
     private lateinit var relatoryTitle: TextView
@@ -47,7 +47,6 @@ class ReportActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_report)
 
         // Inicializar Banco de Dados
