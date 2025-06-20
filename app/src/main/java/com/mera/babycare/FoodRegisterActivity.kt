@@ -38,24 +38,20 @@ class FoodRegisterActivity : BaseActivity() {
     private lateinit var inputFimEdit: TextInputEditText
     private lateinit var textDay: TextView
 
-    // Variável para guardar o estado do botão selecionado
     private var isBreastMilkSelected = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_register)
 
-        // Inicializa as Views
         toggleBreastMilk = findViewById(R.id.toggle_breast_milk)
         toggleFormulaMilk = findViewById(R.id.toggle_formula_milk)
         quantitySection = findViewById(R.id.quantity_section)
         backButton = findViewById(R.id.back_button_food)
 
-        // Configura os listeners
         setupToggleButtonListeners()
         setupBackButton()
 
-        // Define o estado inicial
         updateButtonStyles()
         updateVisibility()
 
@@ -71,7 +67,7 @@ class FoodRegisterActivity : BaseActivity() {
         inputInicioEdit.setOnClickListener {
             showTimePicker { calendar ->
                 inicioDateTime = calendar
-                inicioTimestamp = calendar.timeInMillis // salva como timestamp
+                inicioTimestamp = calendar.timeInMillis
                 inputInicioEdit.setText(formatTime(calendar))
                 textDay.setText(isHojeOuOntem(calendar))
             }
@@ -80,7 +76,7 @@ class FoodRegisterActivity : BaseActivity() {
         inputFimEdit.setOnClickListener {
             showTimePicker { calendar ->
                 fimDateTime = calendar
-                fimTimestamp = calendar.timeInMillis // salva como timestamp
+                fimTimestamp = calendar.timeInMillis
                 inputFimEdit.setText(formatTime(calendar))
             }
         }
@@ -96,7 +92,7 @@ class FoodRegisterActivity : BaseActivity() {
 
     private fun setupBackButton() {
         backButton.setOnClickListener {
-            finish() // Fecha a atividade atual e volta para a anterior
+            finish()
         }
     }
 
@@ -116,22 +112,21 @@ class FoodRegisterActivity : BaseActivity() {
 
     private fun updateButtonStyles() {
         if (isBreastMilkSelected) {
-            // Estilo para botão selecionado
+
             toggleBreastMilk.setBackgroundColor(getColor(R.color.strong_green))
             toggleBreastMilk.setTextColor(Color.WHITE)
             toggleBreastMilk.strokeWidth = 0
 
-            // Estilo para botão não selecionado
+
             toggleFormulaMilk.setBackgroundColor(Color.TRANSPARENT)
             toggleFormulaMilk.setTextColor(getColor(R.color.black))
-            toggleFormulaMilk.strokeWidth = 2 // Ou o valor original do seu stroke
+            toggleFormulaMilk.strokeWidth = 2
         } else {
-            // Estilo para botão não selecionado
             toggleBreastMilk.setBackgroundColor(Color.TRANSPARENT)
             toggleBreastMilk.setTextColor(getColor(R.color.black))
             toggleBreastMilk.strokeWidth = 2
 
-            // Estilo para botão selecionado
+
             toggleFormulaMilk.setBackgroundColor(getColor(R.color.strong_green))
             toggleFormulaMilk.setTextColor(Color.WHITE)
             toggleFormulaMilk.strokeWidth = 0
@@ -139,7 +134,6 @@ class FoodRegisterActivity : BaseActivity() {
     }
 
     private fun updateVisibility() {
-        // Mostra a seção de quantidade apenas se "Leite (Fórmula)" estiver selecionado
         quantitySection.visibility = if (isBreastMilkSelected) View.GONE else View.VISIBLE
     }
 
@@ -207,7 +201,6 @@ class FoodRegisterActivity : BaseActivity() {
             inputFimLayout.error = null
         }
 
-        // VALIDAÇÃO QUANTIDADE (somente se for fórmula)
         if (!isBreastMilkSelected) {
             if (inputQuantityEdit.text.isNullOrBlank()) {
                 inputQuantityLayout.error = "Campo obrigatório"
@@ -216,7 +209,7 @@ class FoodRegisterActivity : BaseActivity() {
                 inputQuantityLayout.error = null
             }
         } else {
-            inputQuantityLayout.error = null // Limpa o erro caso tenha vindo de antes
+            inputQuantityLayout.error = null
         }
 
         return valido
@@ -254,7 +247,7 @@ class FoodRegisterActivity : BaseActivity() {
             null
         }
 
-        val notes: String? = null // Adapte se futuramente quiser adicionar notas
+        val notes: String? = null
 
         dataBaseManager.addFeeding(
             db = db,

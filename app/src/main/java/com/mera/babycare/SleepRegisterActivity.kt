@@ -43,7 +43,7 @@ class SleepRegisterActivity : BaseActivity() {
         inputInicioEdit.setOnClickListener {
             showTimePicker { calendar ->
                 inicioDateTime = calendar
-                inicioTimestamp = calendar.timeInMillis // salva como timestamp
+                inicioTimestamp = calendar.timeInMillis
                 inputInicioEdit.setText(formatTime(calendar))
                 textDay.setText(isHojeOuOntem(calendar))
             }
@@ -52,7 +52,7 @@ class SleepRegisterActivity : BaseActivity() {
         inputFimEdit.setOnClickListener {
             showTimePicker { calendar ->
                 fimDateTime = calendar
-                fimTimestamp = calendar.timeInMillis // salva como timestamp
+                fimTimestamp = calendar.timeInMillis
                 inputFimEdit.setText(formatTime(calendar))
             }
         }
@@ -148,14 +148,14 @@ class SleepRegisterActivity : BaseActivity() {
             return
         }
 
-        val dbHelper = Database(this) // sua classe que estende SQLiteOpenHelper
+        val dbHelper = Database(this)
         val db = dbHelper.writableDatabase
 
         val dataBaseManager = DataBaseManager(this)
 
         val id = java.util.UUID.randomUUID().toString()
-        val isNap = false // ajuste se quiser permitir selecionar na interface
-        val notes = null // substitua se quiser permitir anotações
+        val isNap = false
+        val notes = null
 
         dataBaseManager.addSleepSession(
             db = db,
