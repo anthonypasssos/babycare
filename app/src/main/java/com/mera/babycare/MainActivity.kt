@@ -35,7 +35,7 @@ class MainActivity : BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val intent = Intent(this, SleepRegisterActivity::class.java)
+        val intent = Intent(this, FoodRegisterActivity::class.java)
         startActivity(intent)
 
         setContentView(R.layout.activity_main)

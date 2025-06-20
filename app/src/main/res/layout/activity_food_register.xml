@@ -98,113 +98,133 @@
         app:layout_constraintTop_toBottomOf="@id/toggle_group_food_type"
         tools:visibility="visible">
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_quantity_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/leaguespartan_regular"
-            android:text="Quantidade"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxBackgroundColor="@color/bg_color"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_time"
+            app:endIconTint="@android:color/black"
+            android:layout_marginEnd="16dp"
+            android:hint="Quantidade">
 
-        <EditText
-            android:id="@+id/input_quantity_ml"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="5"
-            android:fontFamily="@font/leaguespartan_semibold"
-            android:gravity="center"
-            android:hint="ml"
-            android:inputType="number"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_quantity_label" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_quantity_ml"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:fontFamily="@font/leaguespartan_semibold"
+                android:gravity="center"
+                android:cursorVisible="false"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/time_section"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quantity_section">
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time_input_start_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/time_input_end_food"
+            app:layout_constraintTop_toTopOf="parent"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxBackgroundColor="@color/bg_color"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_time"
+            app:endIconTint="@android:color/black"
             android:layout_marginEnd="16dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:hint="Início">
 
-            <TextView
-                android:id="@+id/text_inicio_alimentacao"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/time_text_start_food"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/leaguespartan_regular"
-                android:text="Início"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/time_input_start_food"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:clickable="true"
-                android:drawablePadding="8dp"
-                android:focusable="true"
-                android:fontFamily="@font/leaguespartan_semibold"
-                android:gravity="center"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
+                android:inputType="none"
                 android:text="00:00"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
-                app:drawableStartCompat="@drawable/ic_time"
-                app:drawableTint="@android:color/black" />
+                android:fontFamily="@font/leaguespartan_semibold"
+                android:gravity="center"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/text_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="Hoje"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/time_input_start_food"
+            app:layout_constraintStart_toStartOf="@id/time_input_start_food"
+            app:layout_constraintEnd_toEndOf="@id/time_input_start_food"
+            android:layout_marginTop="10dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time_input_end_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/time_input_start_food"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxBackgroundColor="@color/bg_color"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_time"
+            app:endIconTint="@android:color/black"
             android:layout_marginStart="16dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:hint="Fim">
 
-            <TextView
-                android:id="@+id/text_fim_alimentacao"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/time_text_end_food"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/leaguespartan_regular"
-                android:text="Fim"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/time_input_end_food"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:clickable="true"
-                android:drawablePadding="8dp"
-                android:focusable="true"
-                android:fontFamily="@font/leaguespartan_semibold"
-                android:gravity="center"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
+                android:inputType="none"
                 android:text="00:00"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
-                app:drawableStartCompat="@drawable/ic_time"
-                app:drawableTint="@android:color/black" />
-        </LinearLayout>
-    </LinearLayout>
+                android:fontFamily="@font/leaguespartan_semibold"
+                android:gravity="center"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <com.google.android.material.button.MaterialButton
