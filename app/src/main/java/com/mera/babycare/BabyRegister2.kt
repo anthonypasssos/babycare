@@ -88,7 +88,6 @@ class BabyRegister2 : BaseActivity() {
     private fun handleButtonTouch(button: MaterialButton, event: MotionEvent, type: String) {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                // Ao tocar para baixo, aplica a elevação temporária
                 if (type == "girl" && !isGirlSelected || type == "boy" && !isBoySelected) {
                     button.translationZ = 8f
                 }
@@ -121,14 +120,8 @@ class BabyRegister2 : BaseActivity() {
 
     private fun updateButtonStates() {
         val nextBtn = findViewById<ImageButton>(R.id.next_btn)
-        // Atualiza a elevação e aparência dos botões com base no estado de seleção
         girlBtn.translationZ = if (isGirlSelected) 4f else 0f
         boyBtn.translationZ = if (isBoySelected) 4f else 0f
         nextBtn.visibility = if (babySex != null) View.VISIBLE else View.GONE
-
-        // Opcional: Você pode querer mudar a cor do texto ou background para indicar seleção
-        // Exemplo:
-        // girlBtn.setTextColor(if (isGirlSelected) getColor(R.color.selected_color) else getColor(R.color.unselected_color))
-        // boyBtn.setTextColor(if (isBoySelected) getColor(R.color.selected_color) else getColor(R.color.unselected_color))
     }
 }

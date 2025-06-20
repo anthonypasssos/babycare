@@ -217,6 +217,7 @@
                     android:src="@drawable/ic_play"
                     android:backgroundTint="@android:color/transparent"/>
                 <ImageButton
+                    android:id="@+id/add_sleep"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:scaleType="centerInside"
@@ -362,6 +363,7 @@
                     android:src="@drawable/ic_play"
                     android:backgroundTint="@android:color/transparent"/>
                 <ImageButton
+                    android:id="@+id/add_fedding"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:scaleType="centerInside"
