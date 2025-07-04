@@ -27,7 +27,7 @@ Abaixo estão os requisitos definidos para o projeto, com o status atual de impl
 | ❌     | Relatório de alimentação             | Funcional      |
 | ✅     | Autenticação (Login e Senha)         | Não Funcional  |
 | ✅     | Modo Noturno                         | Não Funcional  |
-| ⏳     | Botão de Voltar                      | Não Funcional  |
+| ✅     | Botão de Voltar                      | Não Funcional  |
 | ✅     | Login com Google                     | Extra (+10%)   |
 | ✅     | Arrasta pra trás para voltar         | Extra (+10%)   |
 | ✅     | Tela de Splash e Wizard              | Extra          |
