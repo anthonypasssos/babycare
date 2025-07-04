@@ -22,15 +22,15 @@ Abaixo estão os requisitos definidos para o projeto, com o status atual de impl
 | Status | Funcionalidade                       | Tipo           |
 |--------|--------------------------------------|----------------|
 | ✅     | Cadastro de horário de sono          | Funcional      |
-| ⏳     | Cadastro de alimentação              | Funcional      |
+| ✅     | Cadastro de alimentação              | Funcional      |
 | ❌     | Relatório de sono (com gráficos)     | Funcional      |
 | ❌     | Relatório de alimentação             | Funcional      |
 | ✅     | Autenticação (Login e Senha)         | Não Funcional  |
 | ✅     | Modo Noturno                         | Não Funcional  |
 | ⏳     | Botão de Voltar                      | Não Funcional  |
 | ✅     | Login com Google                     | Extra (+10%)   |
-| ❌     | Arrasta pra trás para voltar         | Extra (+10%)   |
-| ❌     | Tela de Splash e Wizard              | Extra          |
+| ✅     | Arrasta pra trás para voltar         | Extra (+10%)   |
+| ✅     | Tela de Splash e Wizard              | Extra          |
 
 ### 🗂️ Legenda:
 - ✅ **Implementado**: A funcionalidade está presente no código.
@@ -67,11 +67,11 @@ Este projeto foi construído utilizando tecnologias modernas do ecossistema Andr
 
 - **Registro de Alimentação:**  
   A interface para registrar o início e o fim do sono (`activity_food_register.xml`) está implementada.  
-  A lógica para salvar os dados no banco ainda precisa ser conectada.
+  A lógica funciona, precisando apenas de ajustes finais.
 
 - **Relatório:**  
   A interface para visualizar relatório de sono e alimentação (`activity_report.xml`) está sendo implementada.  
-  A lógica para salvar os dados no banco ainda precisa ser conectada.
+  A lógica funciona, precisando apenas de ajustes finais.
 
 - **Temas (Modo Noturno):**  
   A configuração de temas para **modo claro e escuro** (`themes.xml`) já está presente, cumprindo o requisito.
@@ -83,4 +83,4 @@ Este projeto foi construído utilizando tecnologias modernas do ecossistema Andr
 - **[Anthony Passos](https://github.com/anthonypasssos)**
 - **[Guilherme Magarao](https://github.com/guilhermemagarao)**
 - **[Ígor Rocha](https://github.com/igorr0cha)**
-- **Luis Henrique**
+- **[Luis Henrique](https://github.com/LuizHOAlves)**
